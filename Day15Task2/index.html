@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add custom styles here */
+        .calculator {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .display {
+            width: 100%;
+            height: 50px;
+            text-align: right;
+            margin-bottom: 10px;
+            padding-right: 10px;
+            font-size: 2em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" class="form-control display" id="display" disabled>
+            <div class="row">
+                <button class="btn btn-primary col-3" onclick="appendNumber('7')">7</button>
+                <button class="btn btn-primary col-3" onclick="appendNumber('8')">8</button>
+                <button class="btn btn-primary col-3" onclick="appendNumber('9')">9</button>
+                <button class="btn btn-secondary col-3" onclick="appendOperator('/')">/</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary col-3" onclick="appendNumber('4')">4</button>
+                <button class="btn btn-primary col-3" onclick="appendNumber('5')">5</button>
+                <button class="btn btn-primary col-3" onclick="appendNumber('6')">6</button>
+                <button class="btn btn-secondary col-3" onclick="appendOperator('')"></button>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary col-3" onclick="appendNumber('1')">1</button>
+                <button class="btn btn-primary col-3" onclick="appendNumber('2')">2</button>
+                <button class="btn btn-primary col-3" onclick="appendNumber('3')">3</button>
+                <button class="btn btn-secondary col-3" onclick="appendOperator('-')">-</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-primary col-3" onclick="appendNumber('0')">0</button>
+                <button class="btn btn-secondary col-3" onclick="appendOperator('.')">.</button>
+                <button class="btn btn-success col-3" onclick="calculate()">=</button>
+                <button class="btn btn-secondary col-3" onclick="appendOperator('+')">+</button>
+            </div>
+            <div class="row mt-2">
+                <button class="btn btn-warning col-6" onclick="clearDisplay()">C</button>
+                <button class="btn btn-danger col-6" onclick="deleteLast()">DEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test suite placeholder -->
+    <script>
+        function runTests() {
+            console.assert(evaluateExpression('2+2') === 4, 'Test 1 Failed');
+            console.assert(evaluateExpression('2-2') === 0, 'Test 2 Failed');
+            console.assert(evaluateExpression('2*2') === 4, 'Test 3 Failed');
+            console.assert(evaluateExpression('2/2') === 1, 'Test 4 Failed');
+            console.assert(evaluateExpression('5%2') === 1, 'Test 5 Failed');
+            console.log('All tests passed!');
+        }
+    </script>
+
+    <script src="calculator.js"></script>
+</body>
+</html>
